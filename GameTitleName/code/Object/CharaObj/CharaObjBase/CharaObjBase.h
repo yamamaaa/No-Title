@@ -1,0 +1,76 @@
+#pragma once
+#include"../../GameObject/GameObject.h"
+#include"../../../KeyStatus/KeyStatus.h"
+#include"../../Math3D/Math3D.h"
+
+/// <summary>
+/// CharaObjBaseクラス
+/// </summary>
+class CharaObjBase:public GameObj
+{
+public:
+
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
+    /// <param name="tag">:タグ名</param>
+    CharaObjBase(std::string tag);
+
+    /// <summary>
+    /// デストラクタ
+    /// </summary>
+    virtual ~CharaObjBase();
+
+protected:
+    /// <summary>
+    /// データ内ファイルパス取得処理
+    /// </summary>
+    /// <param name="objData">:取得したいオブジェクトデータ</param>
+    /// <returns>ファイルパス</returns>
+    const std::string GetFilePass(const rapidjson::Value& objData) { return objData[jsondata::dataKey.pass.c_str()].GetString(); }
+
+    /// <summary>
+    /// キャラ動作処理
+    /// </summary>
+    /// <param name="deltaTime">:デルタタイム</param>
+    virtual void MoveChara(const float deltaTime) = 0;
+
+    /// <summary>
+    /// Y軸回転処理
+    /// </summary>
+    /// <param name="dir">:目標の向き</param>
+    /// <param name="velocity">:角速度</param>
+    void RotateYAxis(const VECTOR dir, float velocity);
+
+    /// <summary>
+    /// 回転方向算出処理
+    /// </summary>
+    /// <returns>:</returns>
+    /// <param name="velocity">:角速度</param>
+    float CalcRotDir(float velocity);
+
+    bool isMove;                            //動作判定
+    float moveSpeed;                        //移動速度
+
+    const VECTOR FRONT = VGet(1, 0, 0);     //前方
+    const VECTOR BACK = VGet(-1, 0, 0);     //後方
+    const VECTOR LEFT = VGet(0, 0, 1);      //左
+    const VECTOR RIGHT = VGet(0, 0, -1);    //右
+
+    const float PI_RAD = 180;               //180度
+    const float ROTATE_SPEED = 10.0f;        //回転速度
+    bool nowRotate;                         //回転判定
+    MATRIX rotateMat;                       //回転行列
+
+    const rapidjson::Value& modelData = model->GetJsonData()[mTag.c_str()];      //モデルパスデータ
+    const rapidjson::Value& soundData = sound->GetJsonData()[mTag.c_str()];      //サウンドパスデータ
+    const rapidjson::Value& motionData = motion->GetJsonData()[mTag.c_str()];    //モーションパスデータ
+
+private:
+    const float SIMILAR_ANGLE = 0.999f;     //相似角
+    VECTOR aimDir;                          //目標座標
+    float rotRad;                           //角速度のラジアン角
+    float rotYRad;                          //Y軸ラジアン角
+    MATRIX rotYMat;                         //Y軸回転行列
+};
+

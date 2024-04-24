@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Asset">
+      <UniqueIdentifier>{0bb342a9-d901-42ce-8da6-0cdc19b9c860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Asset\AssetBase">
+      <UniqueIdentifier>{fbcdc6aa-ab6f-408b-a9c4-eddedd44b922}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Asset\AssetManager">
+      <UniqueIdentifier>{e19b81f4-7f1c-44f1-969b-5c05a89c7185}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Asset\Model">
+      <UniqueIdentifier>{dafe0991-2df8-40cd-9ed6-9f87d8fd4fda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Asset\Motion">
+      <UniqueIdentifier>{39b9b860-afc9-47c6-b8ae-9ef169406c14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\FPS">
+      <UniqueIdentifier>{b9bb2bc4-0a35-4c94-8239-24dfb8318117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameSystem">
+      <UniqueIdentifier>{c577c58e-1e82-445e-b6e0-52beda18725d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\KeyStatus">
+      <UniqueIdentifier>{e6c52e1f-a78b-4f22-bf2d-d90bb34cd2f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object">
+      <UniqueIdentifier>{0ac67480-488a-4a59-8c5d-9bc2c5872abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene">
+      <UniqueIdentifier>{457a5c87-db64-4181-be8b-58c0aebd925c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameSystem\GameManager">
+      <UniqueIdentifier>{53837b93-b377-499f-83e9-a7721618d2f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameSystem\GameSetting">
+      <UniqueIdentifier>{483e351c-5e40-44a0-ac01-b264faf5f51c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameSystem\Window">
+      <UniqueIdentifier>{0d66f83f-3c85-485f-a32d-d81f6583d4c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\Play">
+      <UniqueIdentifier>{7e7cdfaa-912f-4427-967a-7a7c20701caa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\SeneBase">
+      <UniqueIdentifier>{d1d015fa-be56-4c54-8638-ff818f93c69a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\SeneManager">
+      <UniqueIdentifier>{5fe43b0e-7dba-4c91-a7c7-ffc0337bd2d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\Title">
+      <UniqueIdentifier>{4e685888-6f9f-4da6-8173-ce1cbd838edf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Camera">
+      <UniqueIdentifier>{cf63f380-46e8-44db-8b61-43d30daf8f9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\CharaObj">
+      <UniqueIdentifier>{ff571af0-9058-424d-a169-e02a0ceb149e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Collison">
+      <UniqueIdentifier>{bd30e4b6-8434-4818-a9c2-aa21b7fe4176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\GameObject">
+      <UniqueIdentifier>{2bc77e69-1744-4219-9bcb-ddd6b39f09a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\GameObjectManager">
+      <UniqueIdentifier>{19236770-e812-4701-9321-947e9bcf44b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Math3D">
+      <UniqueIdentifier>{08cd7de9-b019-49fb-b381-a7493a7a88b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\CharaObj\Player">
+      <UniqueIdentifier>{4a4f621f-bb4d-475c-bf49-11398a247347}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\CharaObj\BackGround">
+      <UniqueIdentifier>{4ac7c381-dc61-4441-9c76-fad876683a96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\CharaObj\CharaObjBase">
+      <UniqueIdentifier>{3bf05575-f2a0-4671-a6dc-707b64cfc1d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Json">
+      <UniqueIdentifier>{57ccd568-30a8-40f3-b72f-f77832797978}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Asset\Sound">
+      <UniqueIdentifier>{ed00a306-3caf-4c3c-8167-035e53731d9b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\code\Asset\AssetBase\AssetBase.cpp">
+      <Filter>ソース ファイル\Asset\AssetBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\FPS\FPS.cpp">
+      <Filter>ソース ファイル\FPS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Asset\AssetManager\AssetManager.cpp">
+      <Filter>ソース ファイル\Asset\AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Asset\Model\Model.cpp">
+      <Filter>ソース ファイル\Asset\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Asset\Motion\Motion.cpp">
+      <Filter>ソース ファイル\Asset\Motion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Asset\Sound\Sound.cpp">
+      <Filter>ソース ファイル\Asset\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\GameSystem\GameManager\GameManager.cpp">
+      <Filter>ソース ファイル\GameSystem\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\GameSystem\GameSetting\GameSetting.cpp">
+      <Filter>ソース ファイル\GameSystem\GameSetting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\GameSystem\Window\Window.cpp">
+      <Filter>ソース ファイル\GameSystem\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\KeyStatus\KeyStatus.cpp">
+      <Filter>ソース ファイル\KeyStatus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Scene\Play\Play.cpp">
+      <Filter>ソース ファイル\Scene\Play</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Scene\SceneBase\SceneBase.cpp">
+      <Filter>ソース ファイル\Scene\SeneBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Scene\SceneManager\SceneManager.cpp">
+      <Filter>ソース ファイル\Scene\SeneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Scene\Title\Title.cpp">
+      <Filter>ソース ファイル\Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Object\Camera\Camera.cpp">
+      <Filter>ソース ファイル\Object\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Object\Collision\Collision.cpp">
+      <Filter>ソース ファイル\Object\Collison</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Object\GameObject\GameObject.cpp">
+      <Filter>ソース ファイル\Object\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Object\GameObjectManager\GameObjectManager.cpp">
+      <Filter>ソース ファイル\Object\GameObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Object\Math3D\Math3D.cpp">
+      <Filter>ソース ファイル\Object\Math3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Object\CharaObj\Player\Player.cpp">
+      <Filter>ソース ファイル\Object\CharaObj\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Object\CharaObj\BackGround\BackGround.cpp">
+      <Filter>ソース ファイル\Object\CharaObj\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\Object\CharaObj\CharaObjBase\CharaObjBase.cpp">
+      <Filter>ソース ファイル\Object\CharaObj\CharaObjBase</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\code\Asset\AssetBase\AssetBase.h">
+      <Filter>ソース ファイル\Asset\AssetBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\FPS\FPS.h">
+      <Filter>ソース ファイル\FPS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Asset\AssetManager\AssetManager.h">
+      <Filter>ソース ファイル\Asset\AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Asset\Model\Model.h">
+      <Filter>ソース ファイル\Asset\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Asset\Motion\Motion.h">
+      <Filter>ソース ファイル\Asset\Motion</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Asset\Sound\Sound.h">
+      <Filter>ソース ファイル\Asset\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Asset\AssetBase\JsonKey.h">
+      <Filter>ソース ファイル\Asset\AssetBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\GameSystem\GameManager\GameManager.h">
+      <Filter>ソース ファイル\GameSystem\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\GameSystem\GameSetting\GameSetting.h">
+      <Filter>ソース ファイル\GameSystem\GameSetting</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\GameSystem\Window\Window.h">
+      <Filter>ソース ファイル\GameSystem\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\KeyStatus\KeyStatus.h">
+      <Filter>ソース ファイル\KeyStatus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Scene\Play\Play.h">
+      <Filter>ソース ファイル\Scene\Play</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Scene\SceneBase\SceneBase.h">
+      <Filter>ソース ファイル\Scene\SeneBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Scene\SceneManager\SceneManager.h">
+      <Filter>ソース ファイル\Scene\SeneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Scene\Title\Title.h">
+      <Filter>ソース ファイル\Scene\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Object\Camera\Camera.h">
+      <Filter>ソース ファイル\Object\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Object\Collision\Collision.h">
+      <Filter>ソース ファイル\Object\Collison</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Object\Collision\CollisionType.h">
+      <Filter>ソース ファイル\Object\Collison</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Object\GameObject\GameObject.h">
+      <Filter>ソース ファイル\Object\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Object\GameObject\ObjectTag.h">
+      <Filter>ソース ファイル\Object\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Object\GameObjectManager\GameObjectManager.h">
+      <Filter>ソース ファイル\Object\GameObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Object\Math3D\Math3D.h">
+      <Filter>ソース ファイル\Object\Math3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Object\CharaObj\Player\Player.h">
+      <Filter>ソース ファイル\Object\CharaObj\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Object\CharaObj\BackGround\BackGround.h">
+      <Filter>ソース ファイル\Object\CharaObj\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\Object\CharaObj\CharaObjBase\CharaObjBase.h">
+      <Filter>ソース ファイル\Object\CharaObj\CharaObjBase</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\json\ModelData.json">
+      <Filter>ソース ファイル\Json</Filter>
+    </None>
+    <None Include="..\json\MotionData.json">
+      <Filter>ソース ファイル\Json</Filter>
+    </None>
+    <None Include="..\json\SoundData.json">
+      <Filter>ソース ファイル\Json</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,12 @@
+{
+    "sound": {
+        "player": {
+            "walk": {
+                "pass": "",
+                "type": "SE",
+                "loop": false,
+                "volume": 150
+            }
+        }
+    }
+}

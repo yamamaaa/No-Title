@@ -1,0 +1,16 @@
+{
+    "motion": {
+        "player": {
+            "nomal": {
+                "pass": "",
+                "speed": 30.0,
+                "loop": true
+            },
+            "walk": {
+                "pass": "",
+                "speed": 30.0,
+                "loop": true
+            }
+        }
+    }
+}

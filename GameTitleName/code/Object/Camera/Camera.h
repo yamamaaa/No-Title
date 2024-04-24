@@ -1,0 +1,32 @@
+#pragma once
+#include"../GameObject/GameObject.h"
+
+/// <summary>
+/// Cameraクラス
+/// </summary>
+class Camera final:public GameObj
+{
+public:
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
+    Camera();
+
+    /// <summary>
+    /// デストラクタ
+    /// </summary>
+    ~Camera();
+
+private:
+    /// <summary>
+    /// 更新処理
+    /// </summary>
+    /// <param name="deltaTime">:デルタタイム</param>
+    void Update(const float deltaTime) override;
+
+    /// <summary>
+    /// 描画処理
+    /// </summary>
+    void Draw() override;
+};
+
