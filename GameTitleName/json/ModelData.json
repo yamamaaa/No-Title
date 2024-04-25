@@ -1,8 +1,8 @@
 {
-    "model": {
-        "player": "date/Nekoinu.mv1",
-        "background": "date/Stage_Model.mv1",
-        "stage_collision": "date/Stage_CollisionModel.mv1",
-        "road_collision": "date/Road_CollisionModel.mv1"
-    }
+  "model": {
+    "player": "../assets/model/Nekoinu.mv1",
+    "background": "../assets/model/Stage_Model.mv1",
+    "stage_collision": "../assets/model/Stage_CollisionModel.mv1",
+    "road_collision": "../assets/model/Road_CollisionModel.mv1"
+  }
 }

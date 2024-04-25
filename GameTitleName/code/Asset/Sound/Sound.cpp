@@ -4,7 +4,7 @@
 Sound::Sound()
 {
     //jsonファイル読み込み
-    jsonFile = "SoundData.json";
+    jsonFile = "../json/SoundData.json";
     LoadJsonFile(jsonFile);
 
     //オブジェクト分データ追加

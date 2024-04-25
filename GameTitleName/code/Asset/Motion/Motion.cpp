@@ -11,7 +11,7 @@ Motion::Motion(class Model* model)
     , attachedIndex(0)
 {
     //jsonファイル読み込み
-    jsonFile = "MotionData.json";
+    jsonFile = "../json/MotionData.json";
     LoadJsonFile(jsonFile);
 
     //オブジェクト分データ追加

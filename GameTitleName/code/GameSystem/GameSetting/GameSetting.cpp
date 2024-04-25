@@ -24,9 +24,6 @@ GameSetting::GameSetting()
 {
     BeforeLibInit();
 
-    //ライブラリ初期化
-    assert(!DxLib_Init());
-
     // ＤＸライブラリ初期化処理
     if (DxLib_Init() == -1)
     {

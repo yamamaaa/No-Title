@@ -1,5 +1,5 @@
 #include "Collision.h"
-#include"Math3D.h"
+#include"../../Object/Math3D/Math3D.h"
 #include <DxLib.h>
 using namespace math;
 

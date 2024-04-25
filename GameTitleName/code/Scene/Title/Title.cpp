@@ -1,9 +1,9 @@
 #include <Dxlib.h>
 
 #include "Title.h"
-#include"Play.h"
-#include "SceneBase.h"
-#include "KeyStatus.h"
+#include"../Play/Play.h"
+#include "../SceneBase/SceneBase.h"
+#include"../../KeyStatus/KeyStatus.h"
 
 Title::Title()
 	:SceneBase()

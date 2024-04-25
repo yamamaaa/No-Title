@@ -8,7 +8,8 @@ Model::Model()
     :AssetBase()
 {
     //jsonファイル読み込み
-    jsonFile = "ModelData.json";
+    jsonFile = "../json/ModelData.json";
+
     LoadJsonFile(jsonFile);
 
     //オブジェクト分ハンドル追加

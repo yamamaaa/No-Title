@@ -3,8 +3,8 @@
 #include"../../KeyStatus/KeyStatus.h"
 #include"../Title/Title.h"
 #include"../../Object/CharaObj/Player/Player.h"
-#include"Camera.h"
-#include"BackGround.h"
+#include"../../Object/Camera/Camera.h"
+#include"../../Object/CharaObj/BackGround/BackGround.h"
 
 Play::Play()
 {
