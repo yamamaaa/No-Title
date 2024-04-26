@@ -28,7 +28,7 @@ void BackGround::ModelLoad()
     //モデルの位置
     MV1SetPosition(mModelHandle, mPos);
     //スケールをセット
-    MV1SetScale(mModelHandle, VGet(0.1, 0.1, 0.1));
+    MV1SetScale(mModelHandle, VGet(0.1f, 0.1f, 0.1f));
 
     // コリジョンモデルの初期設定
     for (auto& CollisonObj : mCollisionModel)
@@ -36,7 +36,7 @@ void BackGround::ModelLoad()
         //コリジョンモデルの位置設定
         MV1SetPosition(CollisonObj, mPos);
         //スケールをセット
-        MV1SetScale(CollisonObj, VGet(0.1, 0.1, 0.1));
+        MV1SetScale(CollisonObj, VGet(0.1f, 0.1f, 0.1f));
         //コリジョン情報を構築
         MV1SetupCollInfo(CollisonObj);
         //当たり判定用モデルの不透明度を設定
