@@ -5,10 +5,7 @@ Player::Player()
 	: CharaObjBase(ObjTag.Player)
 {
 
-    int lineColor = GetColor(128, 0, 0);
-    VECTOR start = VGet(0, -800, 0);
-    VECTOR end = VGet(0, 0, 0);
-    DrawLine3D(end, start, lineColor);
+   
 
 	// ３Ｄモデルの読み込み
 	mModelHandle = AssetManager::ModelInstance()->GetHandle(
@@ -127,6 +124,13 @@ void Player::OnCollisonEnter(const GameObj* other)
 
 void Player::Draw()
 {
+    int CrY = GetColor(255, 255, 0);//黄色
+    int CrR = GetColor(255, 0, 0);//赤色
+    int CrB = GetColor(0, 0, 255);//青色
+    //線の表示(中心0,0,0)
+    DrawLine3D(VGet(-1000, 0, 0), VGet(1000, 0, 0), CrR);//横 x　赤
+    DrawLine3D(VGet(0, -1000, 0), VGet(0, 1000, 0), CrY);//縦 y　黄
+    DrawLine3D(VGet(0, 0, -1000), VGet(0, 0, 1000), CrB);//奥(前後) z　青
 	MV1DrawModel(mModelHandle);
 	/*SetCameraPositionAndTarget_UpVecY(VGet(-110, 80, 0), VGet(0, 0, 0));*/
     DrawCollider();

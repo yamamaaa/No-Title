@@ -1,5 +1,8 @@
 #pragma once
 #include"../GameObject/GameObject.h"
+#include"../../Object/GameObjectManager/GameObjectManager.h"
+#include"../../Object/CharaObj/Player/Player.h"
+#include"../Math3D/Math3D.h"
 
 /// <summary>
 /// Cameraクラス
@@ -28,5 +31,12 @@ private:
     /// 描画処理
     /// </summary>
     void Draw() override;
+
+    VECTOR mPos;               // カメラ位置
+    VECTOR mLookPos;           // カメラの注目点
+    VECTOR mCamOffset;         // プレイヤーからの相対位置
+
+    VECTOR mAimCamPos;         // カメラ目標位置
+    VECTOR mAimLookPos;        // カメラ注目点目標
 };
 
