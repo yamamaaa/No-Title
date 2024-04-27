@@ -4,9 +4,6 @@
 Player::Player() 
 	: CharaObjBase(ObjTag.Player)
 {
-
-   
-
 	// ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚Ýž‚Ý
 	mModelHandle = AssetManager::ModelInstance()->GetHandle(
 		AssetManager::ModelInstance()->GetJsonData()[ObjTag.Player.c_str()].GetString());

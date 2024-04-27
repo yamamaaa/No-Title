@@ -1,10 +1,15 @@
 #include "Camera.h"
 
+using namespace math;
 
 Camera::Camera()
     :GameObj(ObjTag.CAMERA)
+	, mPos()
+	, mLookPos()
+	, mCamOffset()
+	, mAimCamPos()
 {
-    SetCameraNearFar(0.1f, 500.0f);
+	mCamOffset = VGet(-80.0f,80.0f,0.0f);
 }
 
 Camera::~Camera()
@@ -14,21 +19,22 @@ Camera::~Camera()
 
 void Camera::Update(const float deltaTime)
 {
- //   mPos = VGet(-100, 100, 0);
+	//カメラの注目地点=プレイヤーの座標
+	GameObj*player=GameObjectManager::GetFirstGameObj(ObjTag.Player);
 
-	//// カメラの注視目標点と、カメラの位置目標点を計算
-	//GameObjectManager::Entry(new Player);
+	if (player)
+	{
+		//プレイヤーの位置情報を目標地点にセット
+		mLookPos = player->GetObjPos();
+		Move(deltaTime);
+	}
+}
 
-	////カメラの注目地点=プレイヤーの座標
-	//std::shared_ptr<Player> player(new Player);
-
-	//mAimLookPos = player->GetPos();
-
-	////カメラのポジション=注目点(プレイヤーの座標)+コンストラクタで初期設定したプレイヤーからのカメラ位置
-	////プレイヤーの座標は常に動くため注目点として計算する必要がある
-	//mAimCamPos = mAimLookPos + mCamOffset;
-
-	////ゲーム開始からのカメラの動き///////////////////////////
+void Camera::Move(const float deltaTime)
+{
+	//カメラのポジション=注目点(プレイヤーの座標)+コンストラクタで初期設定したプレイヤーからのカメラ位置
+	//プレイヤーの座標は常に動くため注目点として計算する必要がある
+	mAimCamPos = mLookPos + mCamOffset;
 
 	//// カメラ位置から目標点に向かうベクトルを計算
 	//VECTOR lookMoveDir = mAimLookPos - mLookPos;
@@ -38,15 +44,13 @@ void Camera::Update(const float deltaTime)
 	//mLookPos += lookMoveDir * camSpringStrength * deltaTime;
 	//mPos += posMoveDir * camSpringStrength * deltaTime;
 
-	///////////////////////////////////////////////////////////
-
-	////SetCameraPositionAndTarget_UpVecY()↓
-	////カメラの視点、注視点、アップベクトルを設定する( アップベクトルはＹ軸方向から導き出す )
-	//SetCameraPositionAndTarget_UpVecY(mPos, mLookPos);
+	mPos += mAimCamPos-mPos;
 }
+
 
 void Camera::Draw()
 {
- /*   SetCameraPositionAndTarget_UpVecY(mPos, VGet(0, 0, 0));*/
-	SetCameraPositionAndTarget_UpVecY(VGet(-50, 200, -100), VGet(0.0f, 50.0f, 0.0f));   //左斜め上から中心を見る
+	//カメラの視点、注視点、アップベクトルを設定する( アップベクトルはＹ軸方向から導き出す )
+	SetCameraPositionAndTarget_UpVecY(mPos, mLookPos);
+	//SetCameraPositionAndTarget_UpVecY(VGet(-50, 200, -100), VGet(0.0f, 50.0f, 0.0f));   //左斜め上から中心を見る
 }

@@ -47,6 +47,9 @@ namespace math
     // @brief += VECTORの演算子
     VECTOR operator+=(VECTOR& lhs, const VECTOR& rhs);
 
+    // @brief -= VECTORの演算子
+    VECTOR operator-=(VECTOR& lhs, const VECTOR& rhs);
+
     // @brief *= VECTORのスカラー倍の複合代入演算子
     VECTOR operator*=(VECTOR& lhs, float rhs);
 

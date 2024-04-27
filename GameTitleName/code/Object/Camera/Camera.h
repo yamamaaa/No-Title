@@ -21,6 +21,7 @@ public:
     ~Camera();
 
 private:
+
     /// <summary>
     /// 更新処理
     /// </summary>
@@ -28,15 +29,19 @@ private:
     void Update(const float deltaTime) override;
 
     /// <summary>
+    /// カメラの移動処理
+    /// </summary>
+    /// <param name="deltaTime"></param>
+    void Move(const float deltaTime);
+
+    /// <summary>
     /// 描画処理
     /// </summary>
     void Draw() override;
 
-    VECTOR mPos;               // カメラ位置
-    VECTOR mLookPos;           // カメラの注目点
-    VECTOR mCamOffset;         // プレイヤーからの相対位置
-
-    VECTOR mAimCamPos;         // カメラ目標位置
-    VECTOR mAimLookPos;        // カメラ注目点目標
+    VECTOR mPos;        //カメラの位置
+    VECTOR mLookPos;    // カメラの注目点
+    VECTOR mCamOffset;  // プレイヤーからの相対位置
+    VECTOR mAimCamPos;  // カメラ目標位置までの向き
 };
 

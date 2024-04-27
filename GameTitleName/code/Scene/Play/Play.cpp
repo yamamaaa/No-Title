@@ -25,10 +25,12 @@ SceneBase* Play::UpdateScene(const float deltaTime)
     GameObjectManager::Update(deltaTime);
     GameObjectManager::Collision();
 
+    //エンターキーでゲーム終了
     if (KeyStatus::KeyStateDecision(KEY_INPUT_RETURN, ONINPUT))
     {
         GameObjectManager::ReleaseAllObj();
-        return new Title;
+        /*return new Title;*/
+        return 0;
     }
 
     return this;
