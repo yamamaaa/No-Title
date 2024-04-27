@@ -23,29 +23,16 @@ public:
 	/// <param name="tag">オブジェクトの名前</param>
 	GameObj(std::string tag);
 
-	/*/// <summary>
-	/// オブジェクトコンストラクタ オブジェクトの位置をセット
+	/// <summary>
+	/// オブジェクトの位置を参照
 	/// </summary>
-	/// <param name="tag"></param>
-	/// <param name="pos"></param>
-	GameObj(std::string tag, VECTOR pos);*/
+	/// <returns>位置情報</returns>
+	const VECTOR& GetObjPos() const { return mPos; }
 
 	/// <summary>
 	/// デストラクタ
 	/// </summary>
 	virtual ~GameObj();
-
-	/*/// <summary>
-	/// 位置情報取得
-	/// </summary>
-	/// <returns>特定のオブジェクトの位置</returns>
-	const VECTOR& GetPos() const { return mPos; }*/
-
-	/*/// <summary>
-	/// 位置情報セット
-	/// </summary>
-	/// <param name="set">オブジェクトの位置</param>
-	void SetPos(const VECTOR set) { mPos = set; }*/
 
 	/// <summary>
 	/// 可視状態の取得
