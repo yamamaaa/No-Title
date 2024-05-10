@@ -13,9 +13,9 @@ BackGround::~BackGround()
 
 void BackGround::ModelLoad()
 {
-    // ３Ｄモデルの読み込み
-    mModelHandle = AssetManager::ModelInstance()->GetHandle(
-        AssetManager::ModelInstance()->GetJsonData()[ObjTag.BACKGROUND.c_str()].GetString());
+    //３Ｄモデルの読み込み
+    mStageObj.push_back((AssetManager::ModelInstance()->GetHandle(
+        AssetManager::ModelInstance()->GetJsonData()[ObjTag.BACKGROUND.c_str()].GetString())));
 
     //ステージのコリジョンモデルを読み込み
     mCollisionModel.push_back(AssetManager::ModelInstance()->GetHandle(
@@ -26,9 +26,9 @@ void BackGround::ModelLoad()
         AssetManager::ModelInstance()->GetJsonData()[ObjTag.ROAD_COLLISION.c_str()].GetString()));
 
     //モデルの位置
-    MV1SetPosition(mModelHandle, mPos);
+    MV1SetPosition(mStageObj.front(), mPos);
     //スケールをセット
-    MV1SetScale(mModelHandle, VGet(0.1f, 0.1f, 0.1f));
+    MV1SetScale(mStageObj.front(), VGet(0.1f, 0.1f, 0.1f));
 
     // コリジョンモデルの初期設定
     for (auto& CollisonObj : mCollisionModel)
@@ -48,16 +48,14 @@ void BackGround::ModelLoad()
 
 void BackGround::ModelCopy()
 {
-    // コピー関連
-   for (auto &mModelCopy: mDrawModelobj)
+   for (int i = 1; i < 3; i++)
    {
-       //ステージ
-       mModelCopy = MV1DuplicateModel(mModelHandle);
-       //モデルの位置
-       MV1SetPosition(mModelCopy, mPos=VGet(30.0f, 30.0f, 30.0f));
+      mStageObj.emplace_back(MV1DuplicateModel(mStageObj.front()));
+      MV1SetScale(mStageObj[i], VGet(0.1f, 0.1f, 0.1f));
    }
 
-   mDrawModelobj;///push_back
+   MV1SetPosition(mStageObj[1], mPos = VGet(65.0f, 0.0f, 0.0f));
+   MV1SetPosition(mStageObj[2], mPos = VGet(-65.0f, 0.0f, 0.0f));
 }
 
 void BackGround::CollisionSet(int CollisionModel)
@@ -74,7 +72,7 @@ void BackGround::Draw()
     MV1DrawModel(mModelHandle);
     //for (auto& CollisonObj : mCollisionModel)
 
-    for (auto m : mDrawModelobj)
+    for (auto m : mStageObj)
     {
         MV1DrawModel(m);
     }
