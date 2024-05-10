@@ -23,6 +23,11 @@ private:
     /// </summary>
     void ModelLoad();
 
+    /// <summary>
+    /// モデルの複製
+    /// </summary>
+    void ModelCopy();
+
     void CollisionSet(int CollisionModel);
 
     /// <summary>
@@ -36,7 +41,6 @@ private:
     /// </summary>
     void Draw() override;
 
-    //int mRoad_Collision;	//道の当たり判定モデル
-    //int mStage_Collision;	//ステージ全体の当たり判定モデル
+    std::vector<int> mDrawModelobj;        //表示用モデル
 };
 

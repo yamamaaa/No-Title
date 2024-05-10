@@ -42,6 +42,22 @@ void BackGround::ModelLoad()
         //当たり判定用モデルの不透明度を設定
         MV1SetOpacityRate(CollisonObj, 0.3f);
     }
+
+    ModelCopy();
+}
+
+void BackGround::ModelCopy()
+{
+    // コピー関連
+   for (auto &mModelCopy: mDrawModelobj)
+   {
+       //ステージ
+       mModelCopy = MV1DuplicateModel(mModelHandle);
+       //モデルの位置
+       MV1SetPosition(mModelCopy, mPos=VGet(30.0f, 30.0f, 30.0f));
+   }
+
+   mDrawModelobj;///push_back
 }
 
 void BackGround::CollisionSet(int CollisionModel)
@@ -50,12 +66,18 @@ void BackGround::CollisionSet(int CollisionModel)
 
 void BackGround::Update(float deltaTime)
 {
+
 }
 
 void BackGround::Draw()
 {
-    //モデルを表示
     MV1DrawModel(mModelHandle);
+    //for (auto& CollisonObj : mCollisionModel)
+
+    for (auto m : mDrawModelobj)
+    {
+        MV1DrawModel(m);
+    }
     DrawCollider();
     /*SetCameraPositionAndTarget_UpVecY(VGet(-80, 80, 0), VGet(0, 0, 0));*/
 }

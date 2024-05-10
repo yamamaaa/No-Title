@@ -36,14 +36,6 @@ void Camera::Move(const float deltaTime)
 	//プレイヤーの座標は常に動くため注目点として計算する必要がある
 	mAimCamPos = mLookPos + mCamOffset;
 
-	//// カメラ位置から目標点に向かうベクトルを計算
-	//VECTOR lookMoveDir = mAimLookPos - mLookPos;
-	//VECTOR posMoveDir = mAimCamPos - mPos;
-
-	//// 注視点と、カメラ位置を徐々に目標地点に近づける
-	//mLookPos += lookMoveDir * camSpringStrength * deltaTime;
-	//mPos += posMoveDir * camSpringStrength * deltaTime;
-
 	mPos += mAimCamPos-mPos;
 }
 
