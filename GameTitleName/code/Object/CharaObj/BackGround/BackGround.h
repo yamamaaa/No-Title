@@ -1,6 +1,6 @@
 #pragma once
 #include <DxLib.h>
-#include"../../GameObject/GameObject.h"
+#include "../../GameObject/GameObject.h"
 
 class BackGround final:public GameObj
 {
@@ -41,6 +41,6 @@ private:
     /// </summary>
     void Draw() override;
 
-    std::vector<int> mDrawModelobj;        //表示用モデル
+    std::vector<int> mStageObj; //ステージ用オブジェクト
 };
 
