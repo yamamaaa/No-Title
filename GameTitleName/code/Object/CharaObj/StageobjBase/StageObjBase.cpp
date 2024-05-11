@@ -3,6 +3,7 @@
 StageObjBase::StageObjBase(std::string tag)
     :GameObj(tag)
 {
+    //ˆ—‚È‚µ
 }
 
 StageObjBase::~StageObjBase()

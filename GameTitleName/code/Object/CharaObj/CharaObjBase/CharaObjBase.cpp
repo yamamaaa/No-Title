@@ -17,7 +17,7 @@ CharaObjBase::CharaObjBase(std::string tag)
 
 CharaObjBase::~CharaObjBase()
 {
-    //ˆ—‚È‚µ
+   //ˆ—‚È‚µ
 }
 
 void CharaObjBase::RotateYAxis(const VECTOR dir, float velocity)
