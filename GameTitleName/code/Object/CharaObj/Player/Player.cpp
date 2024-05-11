@@ -131,5 +131,5 @@ void Player::Draw()
 	MV1DrawModel(mModelHandle);
 	/*SetCameraPositionAndTarget_UpVecY(VGet(-110, 80, 0), VGet(0, 0, 0));*/
     DrawCollider();
-   /* DrawFormatString(0, 20, GetColor(255, 255, 255) ,"”L %f", mPos);*/
+    DrawFormatString(0, 20, GetColor(255, 255, 255) ,"”L X:%f Y:%f Z:%f", mPos.x,mPos.y,mPos.z);
 }

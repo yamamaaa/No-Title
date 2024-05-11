@@ -21,6 +21,7 @@ public:
 
 protected:
 
-    std::vector<int> mStageObj;     //プレイヤーを除いたオブジェクト
+    std::vector<int> mStageObj;     //ステージオブジェクト
+    std::vector<int> sPos;          //オブジェクトの座標
 };
 

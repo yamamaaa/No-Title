@@ -1,8 +1,9 @@
 #pragma once
 #include <DxLib.h>
-#include "../../GameObject/GameObject.h"
+#include "../../CharaObj/CharaObjBase/CharaObjBase.h"
+#include"../../CharaObj/StageobjBase/StageObjBase.h"
 
-class BackGround final:public GameObj
+class BackGround final:public StageObjBase
 {
 public :
 
@@ -24,9 +25,9 @@ private:
     void ModelLoad();
 
     /// <summary>
-    /// モデルの複製
+    /// モデルのセッティング
     /// </summary>
-    void ModelCopy();
+    void ModelSetting();
 
     void CollisionSet(int CollisionModel);
 
@@ -40,7 +41,5 @@ private:
     /// 描画処理
     /// </summary>
     void Draw() override;
-
-    std::vector<int> mStageObj; //ステージ用オブジェクト
 };
 
