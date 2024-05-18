@@ -1,6 +1,4 @@
 #include "BackGround.h"
-#include "../../GameObject/GameObject.h"
-#include"../../CharaObj/Player/Player.h"
 
 //プレイヤーはROAD_COLLISIONの範囲内のみ移動可能
 //障害物はすべてSTAGE_COLLISIONを参照、これもスクロールをする
@@ -8,10 +6,24 @@
 //プレイヤーが止まってもROAD_COLLISIONの範囲内にとどまる(強制スクロール)
 //この時、オブジェクトに挟まり、範囲外に出てしまったら死亡尾扱いにする
 
+//ハンドルの複製は子クラス内でもおｋ、オブジェクト自体は子クラス内で配列で持つ
+//よりもシーン内でstd::vectorを使ってインスタンスとして確保
+
 BackGround::BackGround()
-    :StageObjBase(ObjTag.BACKGROUND)
+    :GameObj(ObjTag.BACKGROUND)
 {
     ModelLoad();
+    //モデルの位置
+    MV1SetPosition(mModelHandle, mPos);
+}
+
+BackGround::BackGround(const BackGround& mground)
+    :GameObj(ObjTag.BACKGROUND)
+{
+    ModelLoad();
+    
+    //モデルの位置
+    MV1SetPosition(mModelHandle, mPos);
 }
 
 BackGround::~BackGround()
@@ -22,8 +34,8 @@ BackGround::~BackGround()
 void BackGround::ModelLoad()
 {
     //３Ｄモデルの読み込み
-    mStageObj.push_back((AssetManager::ModelInstance()->GetHandle(
-        AssetManager::ModelInstance()->GetJsonData()[ObjTag.BACKGROUND.c_str()].GetString())));
+    mModelHandle=(AssetManager::ModelInstance()->GetHandle(
+        AssetManager::ModelInstance()->GetJsonData()[ObjTag.BACKGROUND.c_str()].GetString()));
 
     //ステージのコリジョンモデルを読み込み
     mCollisionModel.push_back(AssetManager::ModelInstance()->GetHandle(
@@ -33,10 +45,8 @@ void BackGround::ModelLoad()
     mCollisionModel.push_back(AssetManager::ModelInstance()->GetHandle(
         AssetManager::ModelInstance()->GetJsonData()[ObjTag.ROAD_COLLISION.c_str()].GetString()));
 
-    //モデルの位置
-    MV1SetPosition(mStageObj[0], mPos);
     //スケールをセット
-    MV1SetScale(mStageObj.front(), VGet(0.1f, 0.1f, 0.1f));
+    MV1SetScale(mModelHandle, VGet(0.1f, 0.1f, 0.1f));
 
     // コリジョンモデルの初期設定
     for (auto& CollisonObj : mCollisionModel)
@@ -54,16 +64,22 @@ void BackGround::ModelLoad()
     ModelSetting();
 }
 
+void BackGround::ModelposMove(VECTOR move)
+{
+    //座標の設定
+    mPos= VAdd(mPos,move);
+}
+
 void BackGround::ModelSetting()
 {
-   for (int i = 1; i < 3; i++)
+   /*for (int i = 1; i < 3; i++)
    {
       mStageObj.emplace_back(MV1DuplicateModel(mStageObj.front()));
       MV1SetScale(mStageObj[i], VGet(0.1f, 0.1f, 0.1f));
    }
 
    MV1SetPosition(mStageObj[1], mPos = VGet(65.0f, 0.0f, 0.0f));
-   MV1SetPosition(mStageObj[2], mPos = VGet(-65.0f, 0.0f, 0.0f));
+   MV1SetPosition(mStageObj[2], mPos = VGet(-65.0f, 0.0f, 0.0f));*/
 }
 
 void BackGround::CollisionSet(int CollisionModel)
@@ -77,7 +93,9 @@ void BackGround::Update(float deltaTime)
 
 void BackGround::Draw()
 {
-    for (auto mobj : mStageObj)
+    MV1DrawModel(mModelHandle);
+
+    /*for (auto mobj : mStageObj)
     {
         MV1DrawModel(mobj);
     }
@@ -85,7 +103,7 @@ void BackGround::Draw()
     for (int i = 1; i < 3; i++)
     {
          DrawFormatString(0, 40, GetColor(255, 255, 255), "ST_0 X:%f Y:%f Z:%f", mStageObj[1].CalcObjPos(), mStageObj[1], mStageObj[1]);
-    }
+    }*/
     DrawCollider();
     //.VGet(mPos.x, mPos.y, mPos.z));
     /*SetCameraPositionAndTarget_UpVecY(VGet(-80, 80, 0), VGet(0, 0, 0));*/

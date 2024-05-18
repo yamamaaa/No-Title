@@ -1,5 +1,9 @@
 #pragma once
 #include"../SceneBase/SceneBase.h"
+#include"../../Object/CharaObj/BackGround/BackGround.h"
+#include"../../Object/GameObjectManager/GameObjectManager.h"
+
+#include<vector>
 
 class Play:public SceneBase
 {
@@ -28,5 +32,9 @@ private:
     /// シーン描画処理
     /// </summary>
     void DrawScene() override;
+
+    std::vector<BackGround> mbackground;     //backgroundのインスタンス複製
+    std::vector<GameObjectManager> md;     //backgroundのインスタンス複製
+
 };
 
