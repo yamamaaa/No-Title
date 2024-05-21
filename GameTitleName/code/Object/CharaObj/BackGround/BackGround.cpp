@@ -6,24 +6,19 @@
 //プレイヤーが止まってもROAD_COLLISIONの範囲内にとどまる(強制スクロール)
 //この時、オブジェクトに挟まり、範囲外に出てしまったら死亡尾扱いにする
 
-//ハンドルの複製は子クラス内でもおｋ、オブジェクト自体は子クラス内で配列で持つ
-//よりもシーン内でstd::vectorを使ってインスタンスとして確保
 
-BackGround::BackGround()
+BackGround::BackGround(VECTOR mpos)
     :GameObj(ObjTag.BACKGROUND)
 {
+    mPos = mpos;
     ModelLoad();
-    //モデルの位置
-    MV1SetPosition(mModelHandle, mPos);
 }
 
-BackGround::BackGround(const BackGround& mground)
+BackGround::BackGround(const BackGround& mground,VECTOR mpos)
     :GameObj(ObjTag.BACKGROUND)
 {
+    mPos = mpos;
     ModelLoad();
-    
-    //モデルの位置
-    MV1SetPosition(mModelHandle, mPos);
 }
 
 BackGround::~BackGround()
@@ -45,6 +40,8 @@ void BackGround::ModelLoad()
     mCollisionModel.push_back(AssetManager::ModelInstance()->GetHandle(
         AssetManager::ModelInstance()->GetJsonData()[ObjTag.ROAD_COLLISION.c_str()].GetString()));
 
+    //モデルの位置
+    MV1SetPosition(mModelHandle, mPos);
     //スケールをセット
     MV1SetScale(mModelHandle, VGet(0.1f, 0.1f, 0.1f));
 
@@ -94,6 +91,7 @@ void BackGround::Update(float deltaTime)
 void BackGround::Draw()
 {
     MV1DrawModel(mModelHandle);
+    //DrawFormatString(0, 80, GetColor(255, 255, 255), "ST X:%f Y:%f Z:%f", mPos.x, mPos.y, mPos.z);
 
     /*for (auto mobj : mStageObj)
     {

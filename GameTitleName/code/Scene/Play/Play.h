@@ -33,8 +33,8 @@ private:
     /// </summary>
     void DrawScene() override;
 
-    std::vector<BackGround> mbackground;     //backgroundのインスタンス複製
-    std::vector<GameObjectManager> md;     //backgroundのインスタンス複製
+    //std::vector<BackGround> mbackground;     //backgroundのインスタンス複製
+    //std::vector<GameObjectManager> md;     //backgroundのインスタンス複製
 
 };
 

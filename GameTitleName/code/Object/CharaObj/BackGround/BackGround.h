@@ -9,13 +9,14 @@ public :
     /// <summary>
     /// コンストラクタ
     /// </summary>
-    BackGround();
+    /// <param name="mpos">ステージの初期位置</param>
+    BackGround(VECTOR mpos);
 
-    /// <summary>
-    /// コピーコンストラクタ
-    /// </summary>
-    /// <param name="background">インスタンスを生成するクラス</param>
-    BackGround(const BackGround& mground);
+    //<summary>
+    //コピーコンストラクタ
+    // </summary>
+    //<param name="background">インスタンスを生成</param>*/
+    BackGround(const BackGround& mground,VECTOR mpos);
 
     /// <summary>
     /// デストラクタ
@@ -34,12 +35,6 @@ private:
     /// モデルの読み込み
     /// </summary>
     void ModelLoad();
-
-    /// <summary>
-    /// モデルの複製
-    /// </summary>
-    /*void ModelCopy();*/
-
    
 
     /// <summary>
