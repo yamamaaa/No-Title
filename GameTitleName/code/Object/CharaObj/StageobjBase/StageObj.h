@@ -2,9 +2,9 @@
 #include"../../GameObject/GameObject.h"
 
 /// <summary>
-/// StageObjBaseクラス
+/// StageObjクラス
 /// </summary>
-class StageObjBase:public GameObj
+class StageObj:public GameObj
 {
 public:
 
@@ -12,16 +12,14 @@ public:
     /// コンストラクタ
     /// </summary>
     /// <param name="tag">:タグ名</param>
-    StageObjBase(std::string tag);
+    StageObj(std::string tag);
 
     /// <summary>
     /// デストラクタ
     /// </summary>
-    virtual ~StageObjBase();
+    virtual ~StageObj();
 
-protected:
+private:
 
-    std::vector<int> mStageObj;     //ステージオブジェクト
-    std::vector<int> sPos;          //オブジェクトの座標
 };
 
