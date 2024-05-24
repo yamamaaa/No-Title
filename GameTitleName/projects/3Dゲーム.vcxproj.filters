@@ -97,7 +97,7 @@
     <Filter Include="ソース ファイル\Asset\Sound">
       <UniqueIdentifier>{ed00a306-3caf-4c3c-8167-035e53731d9b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Object\CharaObj\StageObjBase">
+    <Filter Include="ソース ファイル\Object\CharaObj\StageObj">
       <UniqueIdentifier>{d9c5e9e6-e47e-4921-886e-c0b0f8f43d15}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -171,8 +171,8 @@
     <ClCompile Include="..\code\Object\CharaObj\CharaObjBase\CharaObjBase.cpp">
       <Filter>ソース ファイル\Object\CharaObj\CharaObjBase</Filter>
     </ClCompile>
-    <ClCompile Include="..\code\Object\CharaObj\StageobjBase\StageObjBase.cpp">
-      <Filter>ソース ファイル\Object\CharaObj\StageObjBase</Filter>
+    <ClCompile Include="..\code\Object\CharaObj\StageobjBase\StageObj.cpp">
+      <Filter>ソース ファイル\Object\CharaObj\StageObj</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -251,8 +251,8 @@
     <ClInclude Include="..\code\Object\CharaObj\CharaObjBase\CharaObjBase.h">
       <Filter>ソース ファイル\Object\CharaObj\CharaObjBase</Filter>
     </ClInclude>
-    <ClInclude Include="..\code\Object\CharaObj\StageobjBase\StageObjBase.h">
-      <Filter>ソース ファイル\Object\CharaObj\StageObjBase</Filter>
+    <ClInclude Include="..\code\Object\CharaObj\StageobjBase\StageObj.h">
+      <Filter>ソース ファイル\Object\CharaObj\StageObj</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
