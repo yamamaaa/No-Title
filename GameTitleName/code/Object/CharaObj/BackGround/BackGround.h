@@ -12,11 +12,11 @@ public :
     /// <param name="mpos">ステージの初期位置</param>
     BackGround(VECTOR mpos);
 
-    //<summary>
-    //コピーコンストラクタ
-    // </summary>
-    //<param name="background">インスタンスを生成</param>*/
-    BackGround(const BackGround& mground,VECTOR mpos);
+    ////<summary>
+    ////コピーコンストラクタ
+    //// </summary>
+    ////<param name="background">インスタンスを生成</param>*/
+    //BackGround(const BackGround& mground,VECTOR mpos);
 
     /// <summary>
     /// デストラクタ

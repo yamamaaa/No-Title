@@ -14,12 +14,12 @@ BackGround::BackGround(VECTOR mpos)
     ModelLoad();
 }
 
-BackGround::BackGround(const BackGround& mground,VECTOR mpos)
-    :GameObj(ObjTag.BACKGROUND)
-{
-    mPos = mpos;
-    ModelLoad();
-}
+//BackGround::BackGround(const BackGround& mground,VECTOR mpos)
+//    :GameObj(ObjTag.BACKGROUND)
+//{
+//    mPos = mpos;
+//    ModelLoad();
+//}
 
 BackGround::~BackGround()
 {
@@ -29,16 +29,16 @@ BackGround::~BackGround()
 void BackGround::ModelLoad()
 {
     //３Ｄモデルの読み込み
-    mModelHandle=(AssetManager::ModelInstance()->GetHandle(
+    mModelHandle= MV1DuplicateModel(AssetManager::ModelInstance()->GetHandle(
         AssetManager::ModelInstance()->GetJsonData()[ObjTag.BACKGROUND.c_str()].GetString()));
 
     //ステージのコリジョンモデルを読み込み
-    mCollisionModel.push_back(AssetManager::ModelInstance()->GetHandle(
-        AssetManager::ModelInstance()->GetJsonData()[ObjTag.STAGE_COLLISION.c_str()].GetString()));
+    mCollisionModel.push_back(MV1DuplicateModel(AssetManager::ModelInstance()->GetHandle(
+        AssetManager::ModelInstance()->GetJsonData()[ObjTag.STAGE_COLLISION.c_str()].GetString())));
 
     //道のコリジョンモデルを読み込み
-    mCollisionModel.push_back(AssetManager::ModelInstance()->GetHandle(
-        AssetManager::ModelInstance()->GetJsonData()[ObjTag.ROAD_COLLISION.c_str()].GetString()));
+    mCollisionModel.push_back(MV1DuplicateModel(AssetManager::ModelInstance()->GetHandle(
+        AssetManager::ModelInstance()->GetJsonData()[ObjTag.ROAD_COLLISION.c_str()].GetString())));
 
     //モデルの位置
     MV1SetPosition(mModelHandle, mPos);
