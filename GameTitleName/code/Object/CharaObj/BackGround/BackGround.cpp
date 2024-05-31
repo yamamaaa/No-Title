@@ -6,7 +6,6 @@
 //プレイヤーが止まってもROAD_COLLISIONの範囲内にとどまる(強制スクロール)
 //この時、オブジェクトに挟まり、範囲外に出てしまったら死亡扱いにする
 
-
 BackGround::BackGround(VECTOR mpos)
     :GameObj(ObjTag.BACKGROUND)
 {
@@ -28,13 +27,13 @@ BackGround::~BackGround()
 
 void BackGround::ModelLoad()
 {
-    //３Ｄモデルの読み込み
-    mModelHandle= MV1DuplicateModel(AssetManager::ModelInstance()->GetHandle(
-        AssetManager::ModelInstance()->GetJsonData()[ObjTag.BACKGROUND.c_str()].GetString()));
+    ////３Ｄモデルの読み込み
+    //mModelHandle= MV1DuplicateModel(AssetManager::ModelInstance()->GetHandle(
+    //    AssetManager::ModelInstance()->GetJsonData()[ObjTag.BACKGROUND.c_str()].GetString()));
 
-    //ステージのコリジョンモデルを読み込み
-    mCollisionModel.push_back(MV1DuplicateModel(AssetManager::ModelInstance()->GetHandle(
-        AssetManager::ModelInstance()->GetJsonData()[ObjTag.STAGE_COLLISION.c_str()].GetString())));
+    ////ステージのコリジョンモデルを読み込み
+    //mCollisionModel.push_back(MV1DuplicateModel(AssetManager::ModelInstance()->GetHandle(
+    //    AssetManager::ModelInstance()->GetJsonData()[ObjTag.STAGE_COLLISION.c_str()].GetString())));
 
     //道のコリジョンモデルを読み込み
     mCollisionModel.push_back(MV1DuplicateModel(AssetManager::ModelInstance()->GetHandle(
@@ -54,8 +53,8 @@ void BackGround::ModelLoad()
         MV1SetScale(CollisonObj, VGet(0.1f, 0.1f, 0.1f));
         //コリジョン情報を構築
         MV1SetupCollInfo(CollisonObj);
-        //当たり判定用モデルの不透明度を設定
-        MV1SetOpacityRate(CollisonObj, 0.3f);
+        ////当たり判定用モデルの不透明度を設定
+        //MV1SetOpacityRate(CollisonObj, 0.3f);
     }
 
     ModelSetting();

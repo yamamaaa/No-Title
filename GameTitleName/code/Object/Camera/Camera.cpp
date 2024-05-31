@@ -10,6 +10,9 @@ Camera::Camera()
 	, mAimCamPos()
 {
 	mCamOffset = VGet(-80.0f,80.0f,0.0f);
+
+	//高さなし
+	/*mCamOffset = VGet(-100.0f, 0.0f, 0.0f);*/
 }
 
 Camera::~Camera()
@@ -43,6 +46,10 @@ void Camera::Move(const float deltaTime)
 void Camera::Draw()
 {
 	//カメラの視点、注視点、アップベクトルを設定する( アップベクトルはＹ軸方向から導き出す )
-	SetCameraPositionAndTarget_UpVecY(mPos, mLookPos);
+		//SetCameraPositionAndTarget_UpVecY(mPos, mLookPos);
+
+
 	//SetCameraPositionAndTarget_UpVecY(VGet(-50, 200, -100), VGet(0.0f, 50.0f, 0.0f));   //左斜め上から中心を見る
+	SetCameraPositionAndTarget_UpVecY(mPos, mLookPos);
+
 }

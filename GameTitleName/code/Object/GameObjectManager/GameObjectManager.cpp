@@ -128,7 +128,7 @@ void GameObjectManager::Collision()
 	for (auto& playernum : mpInstance->mObjects[ObjTag.Player])
 	{
 		// player vs BackGround 組み合わせチェック
-		for (auto& bgnum : mpInstance->mObjects[ObjTag.BACKGROUND])
+		for (auto& bgnum : mpInstance->mObjects[ObjTag.ROAD_COLLISION])
 		{
 			//壁とぶつかったら
 			playernum->OnCollisonEnter(bgnum.get());

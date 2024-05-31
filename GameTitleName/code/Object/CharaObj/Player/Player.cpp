@@ -1,13 +1,16 @@
 #include "Player.h"
 //int MV1SetLoadModelPhysicsWorldGravity( float Gravity ) ;
 
+//線分でステージとオブジェクトの設置判定
+//ジャンプ処理のため今はステージとの接触判定するときか、フラグを管理する
+
 Player::Player() 
 	: CharaObjBase(ObjTag.Player)
 {
 	// ３Ｄモデルの読み込み
 	mModelHandle = AssetManager::ModelInstance()->GetHandle(
 		AssetManager::ModelInstance()->GetJsonData()[ObjTag.Player.c_str()].GetString());
-    objLocalPos = VGet(0, 50, 0);
+    objLocalPos = VGet(60, 0, 0);
 
     // MV1SetScale()	モデルの拡大値をセット
     MV1SetScale(mModelHandle, VGet(0.02f, 0.02f, 0.02f));
@@ -17,6 +20,9 @@ Player::Player()
 
     // 当たり判定球セット
     mCollisionType = CollisionType::Sphere;
+
+    //足元当たり判定線分セット
+    mCollisionLine = LineSegment(VGet(0.0f, 20.0f, 0.0f), VGet(0.0, -30.0f, 0.0f));
 
     //球の半径セット
     mCollisionSphere.mRadius = 8.0f;
@@ -102,19 +108,33 @@ void Player::MoveByKey(const int keyName, const VECTOR dir, const float deltaTim
 
 void Player::OnCollisonEnter(const GameObj* other)
 {
-    MV1_COLL_RESULT_POLY_DIM colInfo{};
-    for (auto& colModel : other->GetCollisionModel())
-    {
-        if (mCollisionSphere.CollisionPair(&mCollisionSphere, colModel, colInfo))
-        {
-            objLocalPos =VAdd(objLocalPos, mCollisionSphere.CalcSpherePushBackVecFromMesh(&mCollisionSphere, colInfo));
-        }
-    }
-    //球体当たり判定の更新
-    CollisionUpdate();
+    //当たったゲームオブジェクトのタグを取得
+    std::string tag = other->GetTag();
 
-    CalcObjPos();
-    MV1SetMatrix(mModelHandle, MMult(rotateMat, MGetTranslate(mPos)));
+    if (tag == ObjTag.ROAD_COLLISION)
+    {
+        MV1_COLL_RESULT_POLY_DIM colInfo{};
+        MV1_COLL_RESULT_POLY colinfoLine;
+
+        for (auto& colModel : other->GetCollisionModel())
+        {
+            if (CollisionPair(&mCollisionSphere, colModel, colInfo))
+            {
+                objLocalPos = VAdd(objLocalPos, CalcSpherePushBackVecFromMesh(&mCollisionSphere, colInfo));
+            }
+            if (CollisionPair(mCollisionLine, colModel, colinfoLine))
+            {
+                // 当たっている場合は足元を衝突点に合わせる
+                mPos = colinfoLine.HitPosition;
+            }
+        }
+
+        //球体当たり判定の更新
+        CollisionUpdate();
+
+        CalcObjPos();
+        MV1SetMatrix(mModelHandle, MMult(rotateMat, MGetTranslate(mPos)));
+    }
 }
 
 

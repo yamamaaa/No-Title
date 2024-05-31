@@ -13,6 +13,8 @@
 #include"../../Asset/Sound/Sound.h"
 #include"../../Asset/AssetManager/AssetManager.h"
 
+using namespace Collision;
+
 class GameObj
 {
 	//継承するものはpublicに
@@ -83,7 +85,8 @@ public:
 	virtual void  ObjCollision(GameObj* other) {};                      // このオブジェクトとの当たり判定
 
 	CollisionType GetCollisionType() const { return mCollisionType; }      // このオブジェクトが持っている当たり判定種を取得
-    Collision GetCollisionSphere() const { return mCollisionSphere; }  // 当たり判定球を返却（持っていれば）
+	LineSegment   GetCollisionLine() const { return mCollisionLine; }	//当たり判定線分を返却
+	Sphere GetCollisionSphere() const { return mCollisionSphere; }		// 当たり判定球を返却（持っていれば）
 	std::vector<int> GetCollisionModel() const { return mCollisionModel; }    // 当たり判定モデルを返却（持っていれば)
 
 	//基底クラスから private にクラスを派生させた場合、
@@ -119,8 +122,9 @@ protected:
 	// 当たり判定関連
 
 	CollisionType mCollisionType; // 当たり判定タイプ
-	Collision mCollisionSphere;   // 当たり判定球
-
+	LineSegment mCollisionLine;	//当たり判定線分
+	Sphere mCollisionSphere;   // 当たり判定球
+	
 	std::vector<int> mCollisionModel;    //当たり判定用モデル
 };
 

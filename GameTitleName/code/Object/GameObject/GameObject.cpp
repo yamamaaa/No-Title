@@ -15,6 +15,7 @@ GameObj::GameObj(std::string tag)
 	, mVisible(true)
 	, mAlive(true)
 	, mCollisionType()
+	, mCollisionLine()
 	, mCollisionSphere()
 	, mCollisionModel()
 {
@@ -37,6 +38,8 @@ void GameObj::CalcObjPos()
 
 void GameObj::DrawCollider()
 {
+	//足元の線分
+	DrawLine3D(mCollisionLine.mWorldStart, mCollisionLine.mWorldEnd, GetColor(255, 255, FALSE));
 	// 球体当たり判定の描画
 	DrawSphere3D(mCollisionSphere.mWorldCenter, mCollisionSphere.mRadius, 10, GetColor(0, 255, 255), GetColor(0, 0, 0), FALSE);
 
@@ -49,8 +52,8 @@ void GameObj::DrawCollider()
 			//SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
 			//モデルの表示
 			MV1DrawModel(CollisonObj);
-			// ブレンドモードの解除
-			SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 255);
+			//// ブレンドモードの解除
+			//SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 255);
 		}
 	}
 }
@@ -59,6 +62,7 @@ void GameObj::CollisionUpdate()
 {
 	//球体当たり判定の更新
 	mCollisionSphere.Move(mPos);
+	mCollisionLine.Move(mPos);
 
 	// モデルの当たり判定情報を再構築
 	for (auto& CollisonObj : mCollisionModel)

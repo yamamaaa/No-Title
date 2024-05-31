@@ -1,6 +1,8 @@
 #pragma once
 #include"../CharaObjBase/CharaObjBase.h"
 
+using namespace Collision;
+
 class Player final:public CharaObjBase
 {
 public:
