@@ -46,7 +46,6 @@ namespace Collision
 	{
 		//‹…‘Ì“®‚«ˆ—
 		mWorldCenter = mLocalCenter + pos;
-		//mWorldCenter = VAdd(mLocalCenter, pos);
 	}
 
 	bool CollisionPair(const LineSegment& line, const int modelHandle, MV1_COLL_RESULT_POLY& collisionInfo)

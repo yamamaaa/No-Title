@@ -4,13 +4,15 @@
 //線分でステージとオブジェクトの設置判定
 //ジャンプ処理のため今はステージとの接触判定するときか、フラグを管理する
 
+//線分に柵が当たったら死亡にする
+
 Player::Player() 
 	: CharaObjBase(ObjTag.Player)
 {
 	// ３Ｄモデルの読み込み
 	mModelHandle = AssetManager::ModelInstance()->GetHandle(
 		AssetManager::ModelInstance()->GetJsonData()[ObjTag.Player.c_str()].GetString());
-    objLocalPos = VGet(60, 0, 0);
+    objLocalPos = VGet(60.0f, 10.0f, 0.0f);
 
     // MV1SetScale()	モデルの拡大値をセット
     MV1SetScale(mModelHandle, VGet(0.02f, 0.02f, 0.02f));
@@ -22,7 +24,7 @@ Player::Player()
     mCollisionType = CollisionType::Sphere;
 
     //足元当たり判定線分セット
-    mCollisionLine = LineSegment(VGet(0.0f, 20.0f, 0.0f), VGet(0.0, -30.0f, 0.0f));
+    mCollisionLine = LineSegment(VGet(0.0f, 20.0f, 0.0f), VGet(0.0, -10.0f, 0.0f));
 
     //球の半径セット
     mCollisionSphere.mRadius = 8.0f;
@@ -111,7 +113,7 @@ void Player::OnCollisonEnter(const GameObj* other)
     //当たったゲームオブジェクトのタグを取得
     std::string tag = other->GetTag();
 
-    if (tag == ObjTag.ROAD_COLLISION)
+    if (tag == ObjTag.BACKGROUND)
     {
         MV1_COLL_RESULT_POLY_DIM colInfo{};
         MV1_COLL_RESULT_POLY colinfoLine;
@@ -121,35 +123,25 @@ void Player::OnCollisonEnter(const GameObj* other)
             if (CollisionPair(&mCollisionSphere, colModel, colInfo))
             {
                 objLocalPos = VAdd(objLocalPos, CalcSpherePushBackVecFromMesh(&mCollisionSphere, colInfo));
+                CollisionUpdate();
             }
             if (CollisionPair(mCollisionLine, colModel, colinfoLine))
             {
                 // 当たっている場合は足元を衝突点に合わせる
                 mPos = colinfoLine.HitPosition;
+                CollisionUpdate();
             }
         }
-
-        //球体当たり判定の更新
-        CollisionUpdate();
 
         CalcObjPos();
         MV1SetMatrix(mModelHandle, MMult(rotateMat, MGetTranslate(mPos)));
     }
 }
 
-
-
 void Player::Draw()
 {
-    int CrY = GetColor(255, 255, 0);//黄色
-    int CrR = GetColor(255, 0, 0);//赤色
-    int CrB = GetColor(0, 0, 255);//青色
-    //線の表示(中心0,0,0)
-    DrawLine3D(VGet(-1000, 0, 0), VGet(1000, 0, 0), CrR);//横 x　赤
-    DrawLine3D(VGet(0, -1000, 0), VGet(0, 1000, 0), CrY);//縦 y　黄
-    DrawLine3D(VGet(0, 0, -1000), VGet(0, 0, 1000), CrB);//奥(前後) z　青
 	MV1DrawModel(mModelHandle);
-	/*SetCameraPositionAndTarget_UpVecY(VGet(-110, 80, 0), VGet(0, 0, 0));*/
     DrawCollider();
+
     DrawFormatString(0, 20, GetColor(255, 255, 255) ,"猫 X:%f Y:%f Z:%f", mPos.x,mPos.y,mPos.z);
 }

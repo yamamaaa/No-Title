@@ -27,17 +27,17 @@ BackGround::~BackGround()
 
 void BackGround::ModelLoad()
 {
-    ////３Ｄモデルの読み込み
-    //mModelHandle= MV1DuplicateModel(AssetManager::ModelInstance()->GetHandle(
-    //    AssetManager::ModelInstance()->GetJsonData()[ObjTag.BACKGROUND.c_str()].GetString()));
+    //３Ｄモデルの読み込み
+   /* mModelHandle= MV1DuplicateModel(AssetManager::ModelInstance()->GetHandle(
+        AssetManager::ModelInstance()->GetJsonData()[ObjTag.BACKGROUND.c_str()].GetString()));*/
 
     ////ステージのコリジョンモデルを読み込み
     //mCollisionModel.push_back(MV1DuplicateModel(AssetManager::ModelInstance()->GetHandle(
     //    AssetManager::ModelInstance()->GetJsonData()[ObjTag.STAGE_COLLISION.c_str()].GetString())));
 
     //道のコリジョンモデルを読み込み
-    mCollisionModel.push_back(MV1DuplicateModel(AssetManager::ModelInstance()->GetHandle(
-        AssetManager::ModelInstance()->GetJsonData()[ObjTag.ROAD_COLLISION.c_str()].GetString())));
+    mCollisionModel.push_back(AssetManager::ModelInstance()->GetHandle(
+        AssetManager::ModelInstance()->GetJsonData()[ObjTag.ROAD_COLLISION.c_str()].GetString()));
 
     //モデルの位置
     MV1SetPosition(mModelHandle, mPos);
@@ -50,11 +50,11 @@ void BackGround::ModelLoad()
         //コリジョンモデルの位置設定
         MV1SetPosition(CollisonObj, mPos);
         //スケールをセット
-        MV1SetScale(CollisonObj, VGet(0.1f, 0.1f, 0.1f));
+        MV1SetScale(CollisonObj, VGet(7.0f, 2.0f, 2.0f));
         //コリジョン情報を構築
         MV1SetupCollInfo(CollisonObj);
-        ////当たり判定用モデルの不透明度を設定
-        //MV1SetOpacityRate(CollisonObj, 0.3f);
+        //当たり判定用モデルの不透明度を設定
+        MV1SetOpacityRate(CollisonObj, 0.3f);
     }
 
     ModelSetting();
@@ -102,6 +102,4 @@ void BackGround::Draw()
          DrawFormatString(0, 40, GetColor(255, 255, 255), "ST_0 X:%f Y:%f Z:%f", mStageObj[1].CalcObjPos(), mStageObj[1], mStageObj[1]);
     }*/
     DrawCollider();
-    //.VGet(mPos.x, mPos.y, mPos.z));
-    /*SetCameraPositionAndTarget_UpVecY(VGet(-80, 80, 0), VGet(0, 0, 0));*/
 }

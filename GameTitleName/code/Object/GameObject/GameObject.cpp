@@ -38,6 +38,14 @@ void GameObj::CalcObjPos()
 
 void GameObj::DrawCollider()
 {
+	int CrY = GetColor(255, 255, 0);//黄色
+	int CrR = GetColor(255, 0, 0);//赤色
+	int CrB = GetColor(0, 0, 255);//青色
+	//線の表示(中心0,0,0)
+	DrawLine3D(VGet(-1000, 0, 0), VGet(1000, 0, 0), CrR);//横 x　赤
+	DrawLine3D(VGet(0, -1000, 0), VGet(0, 1000, 0), CrY);//縦 y　黄
+	DrawLine3D(VGet(0, 0, -1000), VGet(0, 0, 1000), CrB);//奥(前後) z　青
+
 	//足元の線分
 	DrawLine3D(mCollisionLine.mWorldStart, mCollisionLine.mWorldEnd, GetColor(255, 255, FALSE));
 	// 球体当たり判定の描画
@@ -48,12 +56,12 @@ void GameObj::DrawCollider()
 	{
 		if (CollisonObj != -1)
 		{
-			////描画をブレンドモードに
-			//SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
+			//描画をブレンドモードに
+			SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
 			//モデルの表示
 			MV1DrawModel(CollisonObj);
-			//// ブレンドモードの解除
-			//SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 255);
+			// ブレンドモードの解除
+			SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 255);
 		}
 	}
 }
