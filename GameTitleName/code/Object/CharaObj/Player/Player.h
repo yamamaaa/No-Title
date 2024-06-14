@@ -44,7 +44,12 @@ private:
     /// </summary>
     void Draw() override;
 
-    const float RUN_SPEED = 30.0f;
-    float a = 0;
+    bool isJump = false;    //ジャンプ中か？
+    bool isLanding = true;  //接地しているか？
+
+    const float RUN_SPEED = 30.0f;  //移動速度
+    const float mG = -0.3f;    //重力
+ 
+    float mDownSpeed = 0;   //落下速度
 };
 

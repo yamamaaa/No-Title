@@ -1,10 +1,6 @@
 #include "Player.h"
-//int MV1SetLoadModelPhysicsWorldGravity( float Gravity ) ;
 
-//線分でステージとオブジェクトの設置判定
-//ジャンプ処理のため今はステージとの接触判定するときか、フラグを管理する
-
-//線分に柵が当たったら死亡にする
+using namespace math;
 
 Player::Player() 
 	: CharaObjBase(ObjTag.Player)
@@ -12,7 +8,7 @@ Player::Player()
 	// ３Ｄモデルの読み込み
 	mModelHandle = AssetManager::ModelInstance()->GetHandle(
 		AssetManager::ModelInstance()->GetJsonData()[ObjTag.Player.c_str()].GetString());
-    objLocalPos = VGet(60.0f, 10.0f, 0.0f);
+    objLocalPos = VGet(60.0f, 2.0f, 0.0f);
 
     // MV1SetScale()	モデルの拡大値をセット
     MV1SetScale(mModelHandle, VGet(0.02f, 0.02f, 0.02f));
@@ -22,9 +18,6 @@ Player::Player()
 
     // 当たり判定球セット
     mCollisionType = CollisionType::Sphere;
-
-    //足元当たり判定線分セット
-    mCollisionLine = LineSegment(VGet(0.0f, 20.0f, 0.0f), VGet(0.0, -10.0f, 0.0f));
 
     //球の半径セット
     mCollisionSphere.mRadius = 8.0f;
@@ -40,13 +33,15 @@ Player::~Player()
 
 void Player::Update(float deltaTime)
 {
-    a += deltaTime;
+    //落下処理
+    /*mDownSpeed += mG;
+    mPos.y = mDownSpeed * deltaTime;*/
+
     //アニメーション時間再生
     motion->AddMotionTime(deltaTime);
 
     //キャラ移動
     MoveChara(deltaTime);
-
 
     //動作中
     if (isMove)
@@ -79,6 +74,9 @@ void Player::Update(float deltaTime)
     CollisionUpdate();
     //停止中にする
     isMove = false;
+
+    //落下速度をリセット
+    mDownSpeed = 0;
 }
 
 void Player::MoveChara(const float deltaTime)
@@ -116,7 +114,7 @@ void Player::OnCollisonEnter(const GameObj* other)
     if (tag == ObjTag.BACKGROUND)
     {
         MV1_COLL_RESULT_POLY_DIM colInfo{};
-        MV1_COLL_RESULT_POLY colinfoLine;
+        /*MV1_COLL_RESULT_POLY colinfoLine;*/
 
         for (auto& colModel : other->GetCollisionModel())
         {
@@ -125,12 +123,12 @@ void Player::OnCollisonEnter(const GameObj* other)
                 objLocalPos = VAdd(objLocalPos, CalcSpherePushBackVecFromMesh(&mCollisionSphere, colInfo));
                 CollisionUpdate();
             }
-            if (CollisionPair(mCollisionLine, colModel, colinfoLine))
-            {
-                // 当たっている場合は足元を衝突点に合わせる
-                mPos = colinfoLine.HitPosition;
-                CollisionUpdate();
-            }
+            //if (CollisionPair(mCollisionLine, colModel, colinfoLine))
+            //{
+            //    // 当たっている場合は足元を衝突点に合わせる
+            //    mPos = colinfoLine.HitPosition;
+            //    CollisionUpdate();
+            //}
         }
 
         CalcObjPos();
