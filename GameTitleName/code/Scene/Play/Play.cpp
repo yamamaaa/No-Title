@@ -3,12 +3,14 @@
 #include"../Title/Title.h"
 #include"../../Object/CharaObj/Player/Player.h"
 #include"../../Object/Camera/Camera.h"
+#include"../../Object/CharaObj/StageobjBase/StageObj.h"
 
 Play::Play()
 {
     //全オブジェクト生成
     GameObjectManager::Entry(new Player);
     GameObjectManager::Entry(new Camera);
+    GameObjectManager::Entry(new StageObj);
 
     GameObjectManager::Entry(new BackGround(VGet(0,0,0)));
     GameObjectManager::Entry(new BackGround(VGet(65.0f, 0, 0)));

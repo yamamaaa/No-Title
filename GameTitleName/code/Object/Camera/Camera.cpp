@@ -9,10 +9,10 @@ Camera::Camera()
 	, mCamOffset()
 	, mAimCamPos()
 {
-	//mCamOffset = VGet(-80.0f,80.0f,0.0f);
+	mCamOffset = VGet(-80.0f,80.0f,0.0f);
 
 	//‚‚³‚È‚µ
-	mCamOffset = VGet(-100.0f, 0.0f, 0.0f);
+	//mCamOffset = VGet(-100.0f, 0.0f, 0.0f);
 
 	//ƒNƒŠƒbƒv”ÍˆÍ‚Ìİ’è
 	//SetCameraNearFar(float Near, float Far)

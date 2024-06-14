@@ -54,5 +54,10 @@ private:
     /// 描画処理
     /// </summary>
     void Draw() override;
+
+    const float SPEED = 10.0f;  //移動速度
+
+    const float MAX_X = 130.0f; //ステージ移動時の最高座標
+    const float MIN_X = 0.0f;
 };
 

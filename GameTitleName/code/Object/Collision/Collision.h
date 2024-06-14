@@ -73,6 +73,13 @@ namespace Collision
 		float  mRadius;      // ‹…‘Ì‚Ì”¼Œa
 	};
 
+	/// <summary>
+	/// ü•ª‚Æ‹…‘Ì‚Ì“–‚½‚è”»’è
+	/// </summary>
+	/// <param name="line">ü•ª</param>
+	/// <param name="sphere">‹…‘Ì</param>
+	/// <returns>“–‚½‚Á‚Ä‚¢‚é‚©H</returns>
+	bool CollisionPair(const LineSegment& line, const Sphere& sphere);
 
 	/// <summary>
 	/// ü•ª‚ÆƒƒbƒVƒ…‚Ì“–‚½‚è”»’è

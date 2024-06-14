@@ -48,6 +48,13 @@ namespace Collision
 		mWorldCenter = mLocalCenter + pos;
 	}
 
+	bool CollisionPair(const LineSegment& line, const Sphere& sphere)
+	{
+		//HitCheck_Line_Sphere();	//ü‚Æ‹…‚Ì“–‚½‚è”»’è
+		//“–‚½‚è”»’è‚Ì‹…‚©‚ç‘«Œ³‚Ìü‚ğ‚¸‚ç‚³‚È‚¢‚æ‚¤‚É”»’è
+		return HitCheck_Line_Sphere(line.mWorldStart, line.mWorldEnd, sphere.mWorldCenter, sphere.mRadius);
+	}
+
 	bool CollisionPair(const LineSegment& line, const int modelHandle, MV1_COLL_RESULT_POLY& collisionInfo)
 	{
 		collisionInfo = MV1CollCheck_Line(modelHandle, -1, line.mWorldStart, line.mWorldEnd);

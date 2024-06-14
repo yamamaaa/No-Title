@@ -4,7 +4,7 @@
 /// <summary>
 /// StageObjクラス
 /// </summary>
-class StageObj:public GameObj
+class StageObj final:public GameObj
 {
 public:
 
@@ -12,14 +12,30 @@ public:
     /// コンストラクタ
     /// </summary>
     /// <param name="tag">:タグ名</param>
-    StageObj(std::string tag);
+    StageObj();
 
     /// <summary>
     /// デストラクタ
     /// </summary>
-    virtual ~StageObj();
+    ~StageObj();
 
 private:
 
+    /// <summary>
+   /// 更新処理
+   /// </summary>
+   /// <param name="deltaTime"></param>
+    void  Update(float deltaTime)override;
+
+    /// <summary>
+    /// 当たったら
+    /// </summary>
+    /// <param name="other"></param>
+    void  ObjCollision(GameObj* other)override;
+
+    /// <summary>
+    /// 描画
+    /// </summary>
+    void  Draw()override;
 };
 

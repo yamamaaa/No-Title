@@ -13,6 +13,7 @@ static struct ObjectTag
 	std::string CAMERA = "camera";						//カメラ
 	std::string ROAD_COLLISION = "road_collision";		//ロードコリジョン
 	std::string STAGE_COLLISION = "stage_collision";	//ステージコリジョン
+	std::string STAGE_OBJ = "stage_obj";				//ステージ上オブジェクト
 }ObjTag;
 
 /// <summary>
@@ -26,4 +27,5 @@ static std::vector<std::string> ObjectTagAll
 	ObjTag.CAMERA,
 	ObjTag.ROAD_COLLISION,
 	ObjTag.STAGE_COLLISION,
+	ObjTag.STAGE_OBJ,
 };

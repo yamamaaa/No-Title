@@ -49,6 +49,7 @@ private:
 
     const float RUN_SPEED = 30.0f;  //移動速度
     const float mG = -0.3f;    //重力
+    const float GROUND = 2.2f;   //接地地面座標
  
     float mDownSpeed = 0;   //落下速度
 };

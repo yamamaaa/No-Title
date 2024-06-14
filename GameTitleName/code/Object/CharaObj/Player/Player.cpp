@@ -8,7 +8,7 @@ Player::Player()
 	// ‚R‚cƒ‚ƒfƒ‹‚Ì“Ç‚Ýž‚Ý
 	mModelHandle = AssetManager::ModelInstance()->GetHandle(
 		AssetManager::ModelInstance()->GetJsonData()[ObjTag.Player.c_str()].GetString());
-    objLocalPos = VGet(60.0f, 2.0f, 0.0f);
+    objLocalPos = VGet(65.0f, 2.2f, 0.0f);
 
     // MV1SetScale()	ƒ‚ƒfƒ‹‚ÌŠg‘å’l‚ðƒZƒbƒg
     MV1SetScale(mModelHandle, VGet(0.02f, 0.02f, 0.02f));
@@ -114,8 +114,7 @@ void Player::OnCollisonEnter(const GameObj* other)
     if (tag == ObjTag.BACKGROUND)
     {
         MV1_COLL_RESULT_POLY_DIM colInfo{};
-        /*MV1_COLL_RESULT_POLY colinfoLine;*/
-
+      
         for (auto& colModel : other->GetCollisionModel())
         {
             if (CollisionPair(&mCollisionSphere, colModel, colInfo))
@@ -123,17 +122,19 @@ void Player::OnCollisonEnter(const GameObj* other)
                 objLocalPos = VAdd(objLocalPos, CalcSpherePushBackVecFromMesh(&mCollisionSphere, colInfo));
                 CollisionUpdate();
             }
-            //if (CollisionPair(mCollisionLine, colModel, colinfoLine))
-            //{
-            //    // “–‚½‚Á‚Ä‚¢‚éê‡‚Í‘«Œ³‚ðÕ“Ë“_‚É‡‚í‚¹‚é
-            //    mPos = colinfoLine.HitPosition;
-            //    CollisionUpdate();
-            //}
         }
-
         CalcObjPos();
         MV1SetMatrix(mModelHandle, MMult(rotateMat, MGetTranslate(mPos)));
     }
+    if (tag == ObjTag.STAGE_OBJ)
+    {
+        if (CollisionPair(other->GetCollisionLine(), mCollisionSphere))
+        {
+            //“–‚½‚Á‚Ä‚¢‚½‚çŽ€–S‚É‚·‚é
+            mAlive = false;
+        }
+    }
+    
 }
 
 void Player::Draw()

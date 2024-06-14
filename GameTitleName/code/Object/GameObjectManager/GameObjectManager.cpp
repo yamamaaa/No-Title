@@ -133,6 +133,11 @@ void GameObjectManager::Collision()
 			//壁とぶつかったら
 			playernum->OnCollisonEnter(bgnum.get());
 		}
+		for (auto& sonum : mpInstance->mObjects[ObjTag.STAGE_OBJ])
+		{
+			//ゲームオーバーの線分に当たったら
+			playernum->OnCollisonEnter(sonum.get());
+		}
 
 	//	// player vs 障害物 組み合わせチェック
 	//	for (auto& Impnum : mpInstance->mObjects[ObjTag.Impediment])
